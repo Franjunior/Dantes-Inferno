@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Start from '@/components/Start.vue'
-import FirstLevel from '@/components/FirstLevel.vue'
-import SecondLevel from '@/components/SecondLevel.vue'
+import Start from '@/views/Start.vue'
+import BeforeHell from '@/views/BeforeHell.vue'
+import FirstLevel from '@/views/FirstLevel.vue'
 
 const routes = [
   {
@@ -11,15 +11,15 @@ const routes = [
   },
 
   {
-    path: '/first-level',
-    name: 'FirstLevel',
-    component: FirstLevel
+    path: '/before-hell',
+    name: 'BeforeHell',
+    component: BeforeHell
   },
 
   {
-    path: '/second-level',
-    name: 'SecondLevel',
-    component: SecondLevel
+    path: '/first-level',
+    name: 'FirstLevel',
+    component: FirstLevel
   }
 ]
 
