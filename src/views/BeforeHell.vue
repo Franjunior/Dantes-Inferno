@@ -42,12 +42,6 @@
              class="character"
              style="position: fixed; top: 300px; left: 800px; width: 250px; height: auto;">
 
-             <img v-if="showGrimMessage" 
-             :src="grim_line_first" 
-             alt="Death GIF" 
-             class="character"
-             style="position: fixed; top: 300px; left: 800px; width: 250px; height: auto;">
-
              <img v-if="showDanteMessage" 
              :src="dante_line_first" 
              alt="Death GIF" 
@@ -167,6 +161,12 @@
         setTimeout(() => {
             this.showDeathGif = true; 
         }, 10000); 
+
+        setTimeout(() => {
+            this.showDeathGif = true; 
+        }, 10000); 
+
+
         
         this.showDanteMessage = true; 
        
