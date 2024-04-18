@@ -101,7 +101,7 @@
              </div>
 
              <div @click="nextLevel">
-            <img src="@/assets/start.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+            <img v-if = "showYouWin" src="@/assets/proceedNext.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
             </div>
 
              <img v-if="show75HP" 
@@ -462,8 +462,11 @@ checkCollision() {
       this.showDeathSpikePrompt = false;
       this.showDeathPrompt = false;
     },
-
+  
+    nextLevel() {
+    this.$router.push('/second-level');
   },
+}
 };
 </script>
 
