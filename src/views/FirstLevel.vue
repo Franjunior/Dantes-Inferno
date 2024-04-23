@@ -228,7 +228,7 @@ export default {
         (direction === 'right' && this.lineX + this.step <= 890)) {
       switch (direction) {
         case 'up':
-          this.lineY = Math.max(this.lineY - this.step, 400);
+          this.lineY = Math.max(this.lineY - this.step, 500);
           break;
         case 'down':
           this.lineY = Math.min(this.lineY + this.step, 500);
@@ -244,7 +244,7 @@ export default {
   } else {
     switch (direction) {
       case 'up':
-        this.lineY = Math.max(this.lineY - this.step, 400);
+        this.lineY = Math.max(this.lineY - this.step, 500);
         break;
       case 'down':
         this.lineY = Math.min(this.lineY + this.step, 500);
