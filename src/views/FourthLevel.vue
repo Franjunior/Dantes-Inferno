@@ -31,7 +31,7 @@
         <img v-if="showLimboSpike" 
              :src="limboSpike" 
              alt="limboSpike" 
-             style="position: fixed; top: 620px; left: 300px; width: 100px; height: auto;">
+             style="position: fixed; top: 420px; left: 300px; width: 100px; height: auto;">
         
         <img v-if = "showGreed" 
             :src="greed" 
@@ -138,7 +138,7 @@
   import greed from '@/assets/boss/greed.gif';
   import greedAttack from '@/assets/boss/greedAttack.gif';
   import limboDeath from '@/assets/boss/limboDeath.gif';
-  import limboSpike from '@/assets/limboSpike.gif';
+  import limboSpike from '@/assets/greedSpike.gif';
   import proceedPrompt from '@/assets/proceed.png';
   import deathSpikePrompt from '@/assets/deathSpikePrompt.png';
   import deathPrompt from '@/assets/deathPrompt.png';

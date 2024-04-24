@@ -31,7 +31,7 @@
         <img v-if="showLimboSpike" 
              :src="limboSpike" 
              alt="limboSpike" 
-             style="position: fixed; top: 620px; left: 300px; width: 100px; height: auto;">
+             style="position: fixed; top: 490px; left: 280px; width: 200px; height: auto;">
         
         <img v-if = "showHeresy" 
             :src="heresy" 
@@ -138,7 +138,7 @@
   import heresy from '@/assets/boss/heresy.gif';
   import heresyAttack from '@/assets/boss/heresyAttack.gif';
   import limboDeath from '@/assets/boss/limboDeath.gif';
-  import limboSpike from '@/assets/limboSpike.gif';
+  import limboSpike from '@/assets/heresySpike.gif';
   import proceedPrompt from '@/assets/proceed.png';
   import deathSpikePrompt from '@/assets/deathSpikePrompt.png';
   import deathPrompt from '@/assets/deathPrompt.png';
@@ -464,7 +464,7 @@
       },
     
       nextLevel() {
-      this.$router.push('/second-level');
+      this.$router.push('/seventh-level');
     },
   }
   };

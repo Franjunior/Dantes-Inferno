@@ -21,17 +21,17 @@
            :src="deathGif" 
            alt="Death GIF" 
            class="character"
-           style="position: fixed; top: 510px; left: 220px; width: 250px; height: auto;">
+           style="position: fixed; top: 520px; left: 220px; width: 250px; height: auto;">
 
       <img v-if="showIdleGif" 
            :src="idleGif" 
            class="character"
-           style="position: fixed; top: 500px; left: 570px; width: 250px; height: auto;">
+           style="position: fixed; top: 520px; left: 570px; width: 250px; height: auto;">
 
       <img v-if="showLimboSpike" 
            :src="limboSpike" 
            alt="limboSpike" 
-           style="position: fixed; top: 630px; left: 300px; width: 100px; height: auto;">
+           style="position: fixed; top: 610px; left: 300px; width: 100px; height: auto;">
       
       <img v-if = "showLust" 
           :src="lust" 
@@ -138,7 +138,7 @@ import deathGif from '@/assets/dante/death.gif';
 import lust from '@/assets/boss/lust.gif';
 import lustAttack from '@/assets/boss/lustAttack.gif';
 import limboDeath from '@/assets/boss/limboDeath.gif';
-import limboSpike from '@/assets/limboSpike.gif';
+import limboSpike from '@/assets/lustSpike.gif';
 import proceedPrompt from '@/assets/proceed.png';
 import deathSpikePrompt from '@/assets/deathSpikePrompt.png';
 import deathPrompt from '@/assets/deathPrompt.png';
@@ -274,7 +274,7 @@ handleKeyDown(event) {
       break;
     case 'x':
       this.xKeyPressed = true;
-      if (this.lineX === 870 && this.lineY === 500 && !this.limboDeathTimeout) {
+      if (this.lineX === 870 && this.lineY === 520 && !this.limboDeathTimeout) {
         this.limboDeathTimeout = true; 
         setTimeout(() => {
           this.showLustAttack = false; 
@@ -291,10 +291,10 @@ handleKeyDown(event) {
           }, 1000);
         }, 10000); 
       }
-      if ((this.lineX === 80 && this.lineY === 500) || 
-          (this.lineX === 90 && this.lineY === 500) || 
-          (this.lineX === 100 && this.lineY === 500) || 
-          (this.lineX === 70 && this.lineY === 500)) {
+      if ((this.lineX === 80 && this.lineY === 520) || 
+          (this.lineX === 90 && this.lineY === 520) || 
+          (this.lineX === 100 && this.lineY === 520) || 
+          (this.lineX === 70 && this.lineY === 520)) {
         setTimeout(() => {
           this.showLimboSpike = false; 
         }, 2000); 

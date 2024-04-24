@@ -21,35 +21,35 @@
            :src="deathGif" 
            alt="Death GIF" 
            class="character"
-           style="position: fixed; top: 510px; left: 220px; width: 250px; height: auto;">
+           style="position: fixed; top: 180px; left: 220px; width: 250px; height: auto;">
 
       <img v-if="showIdleGif" 
            :src="idleGif" 
            class="character"
-           style="position: fixed; top: 500px; left: 570px; width: 250px; height: auto;">
+           style="position: fixed; top: 180px; left: 570px; width: 250px; height: auto;">
 
       <img v-if="showLimboSpike" 
            :src="limboSpike" 
            alt="limboSpike" 
-           style="position: fixed; top: 620px; left: 300px; width: 100px; height: auto;">
+           style="position: fixed; top: 250px; left: 280px; width: 150px; height: auto;">
       
       <img v-if = "showAnger" 
           :src="anger" 
            alt="anger" 
            class="character"
-           style="position: fixed; top: 5px; left: 1150px; width: 400px; height: auto;">
+           style="position: fixed; top: 5px; left: 1000px; width: 400px; height: auto;">
 
       <img v-if ="showAngerAttack"
            :src="angerAttack" 
            alt="anger" 
            class="character"
-           style="position: fixed; top: 5px; left: 1150px; width: 400px; height: auto;">
+           style="position: fixed; top: 5px; left: 1000px; width: 400px; height: auto;">
 
       <img v-if ="showLimboDeath"
            :src="limboDeath" 
            alt="limbo" 
            class="character"
-           style="position: fixed; top: 420px; left: 1000px; width: 300px; height: auto;">
+           style="position: fixed; top: 5px; left: 1000px; width: 400px; height: auto;">
      
       <img v-if="showDanteMessage" 
              :src="dante_line_first" 
@@ -138,7 +138,7 @@ import deathGif from '@/assets/dante/death.gif';
 import anger from '@/assets/boss/anger.gif';
 import angerAttack from '@/assets/boss/angerAttack.gif';
 import limboDeath from '@/assets/boss/limboDeath.gif';
-import limboSpike from '@/assets/limboSpike.gif';
+import limboSpike from '@/assets/angerSpike.gif';
 import proceedPrompt from '@/assets/proceed.png';
 import deathSpikePrompt from '@/assets/deathSpikePrompt.png';
 import deathPrompt from '@/assets/deathPrompt.png';
@@ -223,7 +223,7 @@ export default {
     moveCharacter(direction) {
   if (this.isDead || this.alive) return; 
 
-  if (this.lineX === 870 && this.lineY === 500 && this.showLimboSpike == false) {
+  if (this.lineX === 870 && this.lineY === 180 && this.showLimboSpike == false) {
     if ((direction === 'left' && this.lineX - this.step >= 870) || 
         (direction === 'right' && this.lineX + this.step <= 890)) {
       switch (direction) {
@@ -231,7 +231,7 @@ export default {
           this.lineY = Math.max(this.lineY - this.step, 400);
           break;
         case 'down':
-          this.lineY = Math.min(this.lineY + this.step, 500);
+          this.lineY = Math.min(this.lineY + this.step, 180);
           break;
         case 'left':
           this.lineX = Math.max(this.lineX - this.step, -10);
@@ -247,7 +247,7 @@ export default {
         this.lineY = Math.max(this.lineY - this.step, 400);
         break;
       case 'down':
-        this.lineY = Math.min(this.lineY + this.step, 500);
+        this.lineY = Math.min(this.lineY + this.step, 180);
         break;
       case 'left':
         this.lineX = Math.max(this.lineX - this.step, -90);
@@ -274,7 +274,7 @@ handleKeyDown(event) {
       break;
     case 'x':
       this.xKeyPressed = true;
-      if (this.lineX === 870 && this.lineY === 500 && !this.limboDeathTimeout) {
+      if (this.lineX === 870 && this.lineY === 180 && !this.limboDeathTimeout) {
         this.limboDeathTimeout = true; 
         setTimeout(() => {
           this.showAngerAttack = false; 
@@ -291,10 +291,10 @@ handleKeyDown(event) {
           }, 1000);
         }, 10000); 
       }
-      if ((this.lineX === 80 && this.lineY === 500) || 
-          (this.lineX === 90 && this.lineY === 500) || 
-          (this.lineX === 100 && this.lineY === 500) || 
-          (this.lineX === 70 && this.lineY === 500)) {
+      if ((this.lineX === 80 && this.lineY === 180) || 
+          (this.lineX === 90 && this.lineY === 180) || 
+          (this.lineX === 100 && this.lineY === 180) || 
+          (this.lineX === 70 && this.lineY === 180)) {
         setTimeout(() => {
           this.showLimboSpike = false; 
         }, 2000); 
@@ -304,7 +304,7 @@ handleKeyDown(event) {
   }
 },
 checkCollision() {
-      if (this.lineX === 120 && this.lineY === 500 && this.showLimboSpike == true) {
+      if (this.lineX === 120 && this.lineY === 180 && this.showLimboSpike == true) {
         this.isDead = true; 
         this.showDeathGif = true;
         this.showNoHP = true;
@@ -322,7 +322,7 @@ checkCollision() {
         this.showIdleGif = false; 
       }
 
-      if (this.lineX === 520 && this.lineY === 500 && this.showLimboSpike == false) {
+      if (this.lineX === 520 && this.lineY === 180 && this.showLimboSpike == false) {
         this.isDead = true;
         this.showIdleGif = true;
         this.showDanteMessage = true;
@@ -358,7 +358,7 @@ checkCollision() {
         }, 8600); 
       }
 
-      if (this.lineX === 870 && this.lineY === 500 && this.showLimboSpike == false) {
+      if (this.lineX === 870 && this.lineY === 180 && this.showLimboSpike == false) {
         this.showAngerAttack = true;
         this.showAnger = false;
 
