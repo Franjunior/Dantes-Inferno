@@ -93,15 +93,15 @@
                alt="Start" style="position: fixed; top: 40px; left: 220px; width: 1000px; height: auto;">
   
                <div @click="reset">
-               <img v-if="showDeathSpikePrompt" src="@/assets/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+               <img v-if="showDeathSpikePrompt" src="@/assets/buttons/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
                </div>
   
                <div @click="reset2">
-               <img v-if="showDeathPrompt" src="@/assets/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+               <img v-if="showDeathPrompt" src="@/assets/buttons/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
                </div>
   
                <div @click="nextLevel">
-              <img v-if = "showYouWin" src="@/assets/proceedNext.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+              <img v-if = "showYouWin" src="@/assets/buttons/proceedNext.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
               </div>
   
                <img v-if="show75HP" 
@@ -138,21 +138,21 @@
   import treachery from '@/assets/boss/treachery.gif';
   import treacheryAttack from '@/assets/boss/treacheryAttack.gif';
   import limboDeath from '@/assets/boss/limboDeath.gif';
-  import limboSpike from '@/assets/treacherySpike.gif';
-  import proceedPrompt from '@/assets/proceed.png';
-  import deathSpikePrompt from '@/assets/deathSpikePrompt.png';
-  import deathPrompt from '@/assets/deathPrompt.png';
-  import first_hp from '@/assets/firstHP.png';
-  import second_hp from '@/assets/secondHP.png';
-  import last_hp from '@/assets/lastHP.png';
-  import full_hp from '@/assets/fullHP.png';
-  import no_hp from '@/assets/noHP.png';
-  import youWin from '@/assets/youWin.png';
+  import limboSpike from '@/assets/obstacle/treacherySpike.gif';
+  import proceedPrompt from '@/assets/prompts/proceed.png';
+  import deathSpikePrompt from '@/assets/prompts/deathSpikePrompt.png';
+  import deathPrompt from '@/assets/prompts/deathPrompt.png';
+  import first_hp from '@/assets/hp/firstHP.png';
+  import second_hp from '@/assets/hp/secondHP.png';
+  import last_hp from '@/assets/hp/lastHP.png';
+  import full_hp from '@/assets/hp/fullHP.png';
+  import no_hp from '@/assets/hp/noHP.png';
+  import youWin from '@/assets/prompts/youWin.png';
   import limbo_line_first from '@/assets/convo/limbo-dante/limbo-line-first.png';
   import dante_line_first from '@/assets/convo/limbo-dante/dante-line-first.png';
   import dante_line_second from '@/assets/convo/limbo-dante/dante-line-second.png';
   import limbo_line_second from '@/assets/convo/limbo-dante/limbo-line-second.png';
-  import proceedButton from '@/assets/proceedButton.png';
+  import proceedButton from '@/assets/buttons/proceedButton.png';
   
   export default {
     data() {

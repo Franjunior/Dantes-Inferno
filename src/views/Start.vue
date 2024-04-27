@@ -1,13 +1,13 @@
 <template>
   <main>
     <div>
-      <img src="@/assets/scroll-start.png" alt="Start" style="position: fixed; top: 40px; left: 220px; width: 1000px; height: auto;" />
+      <img src="@/assets/prompts/scroll-start.png" alt="Start" style="position: fixed; top: 40px; left: 220px; width: 1000px; height: auto;" />
       <div @click="startGame">
-        <img src="@/assets/start.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+        <img src="@/assets/buttons/start.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
       </div>
     </div>
-    <div v-if="loading" class="loading-screen">
-      <img src="@/assets/loading.gif" alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1500px; height: auto;" />
+    <div v-if="loading" >
+      <img src="@/assets/loading.gif" alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1600px; height: 900px;" />
     </div>
   </main>
 </template>
@@ -27,7 +27,7 @@ export default {
       setTimeout(() => {
         this.loading = false;
         this.$router.push('/before-hell');
-      }, 5000); 
+      }, 9000); 
     }
   }
 };

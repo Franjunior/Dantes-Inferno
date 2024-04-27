@@ -65,11 +65,11 @@
              alt="Start" style="position: fixed; top: 40px; left: 220px; width: 1000px; height: auto;">
 
              <div @click="proceedToHell">
-             <img v-if="showProceedPrompt" src="@/assets/proceedButton.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+             <img v-if="showProceedPrompt" src="@/assets/buttons/proceedButton.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
              </div>
 
             <div v-if="first_prompt" class="loading-screen">
-            <img src="@/assets/first-prompt.gif" alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1400px; height: 800px;" />
+            <img src="@/assets/prompts/first-prompt.gif" alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1400px; height: 800px;" />
             </div>
           
       </div>
@@ -86,8 +86,8 @@
   import dante_line_first from '@/assets/convo/grim-dante/dante-line-first.png';
   import dante_line_second from '@/assets/convo/grim-dante/dante-line-second.png';
   import grim_line_second from '@/assets/convo/grim-dante/grim-line-second.png';
-  import proceedButton from '@/assets/proceedButton.png';
-  import proceedPrompt from '@/assets/proceed.png';
+  import proceedButton from '@/assets/buttons/proceedButton.png';
+  import proceedPrompt from '@/assets/prompts/proceed.png';
   
   export default {
     data() {
