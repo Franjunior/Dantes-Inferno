@@ -22,6 +22,12 @@
              alt="Death GIF" 
              class="character"
              style="position: fixed; top: 510px; left: 220px; width: 250px; height: auto;">
+
+             <img v-if="showDeathGif2" 
+             :src="deathGif" 
+             alt="Death GIF" 
+             class="character"
+             style="position: fixed; top: 510px; left: 320px; width: 250px; height: auto;">
   
         <img v-if="showIdleGif" 
              :src="idleGif" 
@@ -32,6 +38,11 @@
              :src="limboSpike" 
              alt="limboSpike" 
              style="position: fixed; top: 420px; left: 300px; width: 100px; height: auto;">
+
+             <img v-if="showLimboSpike2" 
+             :src="limboSpike2" 
+             alt="limboSpike2" 
+             style="position: fixed; top: 420px; left: 400px; width: 100px; height: auto;">
         
         <img v-if = "showGreed" 
             :src="greed" 
@@ -50,6 +61,18 @@
              alt="limbo" 
              class="character"
              style="position: fixed; top: 420px; left: 1000px; width: 300px; height: auto;">
+
+             <img v-if ="showLimboDeath2"
+           :src="limboDeath" 
+           alt="limbo" 
+           class="character"
+           style="position: fixed; top: 580px; left: 300px; width: 100px; height: auto;">
+
+           <img v-if ="showLimboDeath3"
+           :src="limboDeath" 
+           alt="limbo" 
+           class="character"
+           style="position: fixed; top: 580px; left: 400px; width: 100px; height: auto;">
        
         <img v-if="showDanteMessage" 
                :src="dante_line_first" 
@@ -93,15 +116,15 @@
                alt="Start" style="position: fixed; top: 40px; left: 220px; width: 1000px; height: auto;">
   
                <div @click="reset">
-               <img v-if="showDeathSpikePrompt" src="@/assets/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+               <img v-if="showDeathSpikePrompt" src="@/assets/buttons/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
                </div>
   
                <div @click="reset2">
-               <img v-if="showDeathPrompt" src="@/assets/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+               <img v-if="showDeathPrompt" src="@/assets/buttons/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
                </div>
   
                <div @click="nextLevel">
-              <img v-if = "showYouWin" src="@/assets/proceedNext.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+              <img v-if = "showYouWin" src="@/assets/buttons/proceedNext.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
               </div>
   
                <img v-if="show75HP" 
@@ -124,7 +147,9 @@
                :src="no_hp" 
                alt="75 hp" style="position: fixed; top: 40px; left: 220px; width: 300px; height: auto;">
   
-           
+               <div v-if="fifth_prompt">
+            <img src="@/assets/prompts/fifth_prompt.gif" alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1400px; height: 800px;" />
+            </div>
   
       </div>
     </main>
@@ -138,21 +163,22 @@
   import greed from '@/assets/boss/greed.gif';
   import greedAttack from '@/assets/boss/greedAttack.gif';
   import limboDeath from '@/assets/boss/limboDeath.gif';
-  import limboSpike from '@/assets/greedSpike.gif';
-  import proceedPrompt from '@/assets/proceed.png';
-  import deathSpikePrompt from '@/assets/deathSpikePrompt.png';
-  import deathPrompt from '@/assets/deathPrompt.png';
-  import first_hp from '@/assets/firstHP.png';
-  import second_hp from '@/assets/secondHP.png';
-  import last_hp from '@/assets/lastHP.png';
-  import full_hp from '@/assets/fullHP.png';
-  import no_hp from '@/assets/noHP.png';
-  import youWin from '@/assets/youWin.png';
+  import limboSpike from '@/assets/obstacle/greedSpike.gif';
+  import limboSpike2 from '@/assets/obstacle/greedSpike.gif';
+  import proceedPrompt from '@/assets/prompts/proceed.png';
+  import deathSpikePrompt from '@/assets/prompts/deathSpikePrompt.png';
+  import deathPrompt from '@/assets/prompts/deathPrompt.png';
+  import first_hp from '@/assets/hp/firstHP.png';
+  import second_hp from '@/assets/hp/secondHP.png';
+  import last_hp from '@/assets/hp/lastHP.png';
+  import full_hp from '@/assets/hp/fullHP.png';
+  import no_hp from '@/assets/hp/noHP.png';
+  import youWin from '@/assets/prompts/youWin.png';
   import limbo_line_first from '@/assets/convo/limbo-dante/limbo-line-first.png';
   import dante_line_first from '@/assets/convo/limbo-dante/dante-line-first.png';
   import dante_line_second from '@/assets/convo/limbo-dante/dante-line-second.png';
   import limbo_line_second from '@/assets/convo/limbo-dante/limbo-line-second.png';
-  import proceedButton from '@/assets/proceedButton.png';
+  import proceedButton from '@/assets/buttons/proceedButton.png';
   
   export default {
     data() {
@@ -169,6 +195,7 @@
         idleGif,
         deathGif,
         limboSpike,
+        limboSpike2,
         greed,
         greedAttack,
         limboDeath,
@@ -190,8 +217,10 @@
         xKeyPressed: false,
         arrowKeysPressed: false,
         showDeathGif: false, 
+        showDeathGif2: false, 
         showIdleGif: false,
         showLimboSpike: true,
+        showLimboSpike2: false,
         showProceedPrompt: false,
         showLimboMessage: false,
         showDanteMessage: false,
@@ -206,9 +235,12 @@
         showFullHP: true,
         showNoHP: false,
         showLimboDeath: false,
+        showLimboDeath2: false,
+        showLimboDeath3: false,
         showYouWin: false,
         showDeathSpikePrompt: false,
         showDeathPrompt: false,
+        fifth_prompt: false,
       };
     },
     mounted() {
@@ -223,25 +255,10 @@
       moveCharacter(direction) {
     if (this.isDead || this.alive) return; 
   
-    if (this.lineX === 870 && this.lineY === 500 && this.showLimboSpike == false) {
-      if ((direction === 'left' && this.lineX - this.step >= 870) || 
-          (direction === 'right' && this.lineX + this.step <= 890)) {
-        switch (direction) {
-          case 'up':
-            this.lineY = Math.max(this.lineY - this.step, 400);
-            break;
-          case 'down':
-            this.lineY = Math.min(this.lineY + this.step, 500);
-            break;
-          case 'left':
-            this.lineX = Math.max(this.lineX - this.step, -10);
-            break;
-          case 'right':
-            this.lineX = Math.min(this.lineX + this.step, this.containerWidth - 400); 
-            break;
-        }
-      }
-    } else {
+    if (this.lineX === 880 && this.lineY === 500 && this.showLimboSpike == false) {
+    ((direction === 'left' && this.lineX - this.step >= 880) || 
+        (direction === 'right' && this.lineX + this.step <= 890)) 
+  } else {
       switch (direction) {
         case 'up':
           this.lineY = Math.max(this.lineY - this.step, 400);
@@ -274,7 +291,7 @@
         break;
       case 'x':
         this.xKeyPressed = true;
-        if (this.lineX === 870 && this.lineY === 500 && !this.limboDeathTimeout) {
+        if (this.lineX === 880 && this.lineY === 500 && !this.limboDeathTimeout) {
           this.limboDeathTimeout = true; 
           setTimeout(() => {
             this.showGreedAttack = false; 
@@ -295,16 +312,38 @@
             (this.lineX === 90 && this.lineY === 500) || 
             (this.lineX === 100 && this.lineY === 500) || 
             (this.lineX === 70 && this.lineY === 500)) {
+            
           setTimeout(() => {
             this.showLimboSpike = false; 
-          }, 2000); 
+            this.showLimboSpike2 = true;
+            this.showLimboDeath2 = true;
+        }, 2000); 
+
+        setTimeout(() => {
+          this.showLimboDeath2 = false;
+        }, 3000); 
+        }
+
+        if ((this.lineX === 180 && this.lineY === 500) || 
+            (this.lineX === 190 && this.lineY === 500) || 
+            (this.lineX === 200 && this.lineY === 500) || 
+            (this.lineX === 170 && this.lineY === 500)) {
+            
+          setTimeout(() => {
+            this.showLimboSpike2 = false;
+            this.showLimboDeath3 = true;
+        }, 2000); 
+
+        setTimeout(() => {
+          this.showLimboDeath3 = false;
+        }, 3000); 
         }
         console.log(`Character Position: (${this.lineX}, ${this.lineY})`);
         break;
     }
   },
   checkCollision() {
-        if (this.lineX === 120 && this.lineY === 500 && this.showLimboSpike == true) {
+        if (this.lineX === 120 && this.lineY === 500 && this.showLimboSpike === true) {
           this.isDead = true; 
           this.showDeathGif = true;
           this.showNoHP = true;
@@ -315,12 +354,19 @@
             this.showNoHP = false;
           }, 2000); 
         }
-        
-        if (this.showLimboSpike == false) {
-          this.isDead = false; 
-          this.showDeathGif = false;
+
+        if (this.lineX === 250 && this.lineY === 500 && this.showLimboSpike2 === true) {
+          this.isDead = true; 
+          this.showDeathGif2 = true;
+          this.showNoHP = true;
+          this.showFullHP = false;
           this.showIdleGif = false; 
+          setTimeout(() => {
+            this.showDeathSpikePrompt = true;
+            this.showNoHP = false;
+          }, 2000); 
         }
+
   
         if (this.lineX === 520 && this.lineY === 500 && this.showLimboSpike == false) {
           this.isDead = true;
@@ -415,9 +461,11 @@
         this.lineX = 0;
         this.lineY = 500;
         this.isDead = false;
+        this.showLimboSpike2 = false;
         this.xKeyPressed = false;
         this.arrowKeysPressed = false;
         this.showDeathGif = false;
+        this.showDeathGif2 = false, 
         this.showIdleGif = false;
         this.showLimboSpike = true;
         this.showProceedPrompt = false;
@@ -451,7 +499,7 @@
         this.showDanteMessage = false;
         this.showDanteMessage2nd = false;
         this.showLimboMessage2nd = false;
-        this.showLGreedAttack = false;
+        this.showGreedAttack = false;
         this.showGreed = true;
         this.show75HP = false;
         this.show50HP = false;
@@ -464,7 +512,12 @@
       },
     
       nextLevel() {
+        this.fifth_prompt = true;
+    
+    setTimeout(() => {
+      this.fifth_prompt = false;
       this.$router.push('/fifth-level');
+    }, 9000); 
     },
   }
   };

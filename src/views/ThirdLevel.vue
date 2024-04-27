@@ -50,6 +50,12 @@
            alt="limbo" 
            class="character"
            style="position: fixed; top: 420px; left: 1000px; width: 300px; height: auto;">
+
+           <img v-if ="showLimboDeath2"
+           :src="limboDeath" 
+           alt="limbo" 
+           class="character"
+           style="position: fixed; top: 580px; left: 300px; width: 100px; height: auto;">
      
       <img v-if="showDanteMessage" 
              :src="dante_line_first" 
@@ -93,15 +99,15 @@
              alt="Start" style="position: fixed; top: 40px; left: 220px; width: 1000px; height: auto;">
 
              <div @click="reset">
-             <img v-if="showDeathSpikePrompt" src="@/assets/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+             <img v-if="showDeathSpikePrompt" src="@/assets/buttons/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
              </div>
 
              <div @click="reset2">
-             <img v-if="showDeathPrompt" src="@/assets/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+             <img v-if="showDeathPrompt" src="@/assets/buttons/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
              </div>
 
              <div @click="nextLevel">
-            <img v-if = "showYouWin" src="@/assets/proceedNext.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+            <img v-if = "showYouWin" src="@/assets/buttons/proceedNext.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
             </div>
 
              <img v-if="show75HP" 
@@ -124,6 +130,9 @@
              :src="no_hp" 
              alt="75 hp" style="position: fixed; top: 40px; left: 220px; width: 300px; height: auto;">
 
+             <div v-if="fourth_prompt">
+            <img src="@/assets/prompts/fourth-prompt.gif" alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1400px; height: 800px;" />
+            </div>
          
 
     </div>
@@ -138,21 +147,21 @@ import deathGif from '@/assets/dante/death.gif';
 import gluttony from '@/assets/boss/gluttony.gif';
 import gluttonyAttack from '@/assets/boss/gluttonyAttack.gif';
 import limboDeath from '@/assets/boss/limboDeath.gif';
-import limboSpike from '@/assets/gluttonySpike.gif';
-import proceedPrompt from '@/assets/proceed.png';
-import deathSpikePrompt from '@/assets/deathSpikePrompt.png';
-import deathPrompt from '@/assets/deathPrompt.png';
-import first_hp from '@/assets/firstHP.png';
-import second_hp from '@/assets/secondHP.png';
-import last_hp from '@/assets/lastHP.png';
-import full_hp from '@/assets/fullHP.png';
-import no_hp from '@/assets/noHP.png';
-import youWin from '@/assets/youWin.png';
+import limboSpike from '@/assets/obstacle/gluttonySpike.gif';
+import proceedPrompt from '@/assets/prompts/proceed.png';
+import deathSpikePrompt from '@/assets/prompts/deathSpikePrompt.png';
+import deathPrompt from '@/assets/prompts/deathPrompt.png';
+import first_hp from '@/assets/hp/firstHP.png';
+import second_hp from '@/assets/hp/secondHP.png';
+import last_hp from '@/assets/hp/lastHP.png';
+import full_hp from '@/assets/hp/fullHP.png';
+import no_hp from '@/assets/hp/noHP.png';
+import youWin from '@/assets/prompts/youWin.png';
 import limbo_line_first from '@/assets/convo/limbo-dante/limbo-line-first.png';
 import dante_line_first from '@/assets/convo/limbo-dante/dante-line-first.png';
 import dante_line_second from '@/assets/convo/limbo-dante/dante-line-second.png';
 import limbo_line_second from '@/assets/convo/limbo-dante/limbo-line-second.png';
-import proceedButton from '@/assets/proceedButton.png';
+import proceedButton from '@/assets/buttons/proceedButton.png';
 
 export default {
   data() {
@@ -206,9 +215,11 @@ export default {
       showFullHP: true,
       showNoHP: false,
       showLimboDeath: false,
+      showLimboDeath2: false,
       showYouWin: false,
       showDeathSpikePrompt: false,
       showDeathPrompt: false,
+      fourth_prompt: false,
     };
   },
   mounted() {
@@ -223,24 +234,9 @@ export default {
     moveCharacter(direction) {
   if (this.isDead || this.alive) return; 
 
-  if (this.lineX === 870 && this.lineY === 520 && this.showLimboSpike == false) {
-    if ((direction === 'left' && this.lineX - this.step >= 870) || 
-        (direction === 'right' && this.lineX + this.step <= 890)) {
-      switch (direction) {
-        case 'up':
-          this.lineY = Math.max(this.lineY - this.step, 520);
-          break;
-        case 'down':
-          this.lineY = Math.min(this.lineY + this.step, 520);
-          break;
-        case 'left':
-          this.lineX = Math.max(this.lineX - this.step, -10);
-          break;
-        case 'right':
-          this.lineX = Math.min(this.lineX + this.step, this.containerWidth - 400); 
-          break;
-      }
-    }
+  if (this.lineX === 880 && this.lineY === 520 && this.showLimboSpike == false) {
+    ((direction === 'left' && this.lineX - this.step >= 880) || 
+        (direction === 'right' && this.lineX + this.step <= 890)) 
   } else {
     switch (direction) {
       case 'up':
@@ -274,7 +270,7 @@ handleKeyDown(event) {
       break;
     case 'x':
       this.xKeyPressed = true;
-      if (this.lineX === 870 && this.lineY === 520 && !this.limboDeathTimeout) {
+      if (this.lineX === 880 && this.lineY === 520 && !this.limboDeathTimeout) {
         this.limboDeathTimeout = true; 
         setTimeout(() => {
           this.showGluttonyAttack = false; 
@@ -297,7 +293,12 @@ handleKeyDown(event) {
           (this.lineX === 70 && this.lineY === 520)) {
         setTimeout(() => {
           this.showLimboSpike = false; 
+          this.showLimboDeath2 = true;
         }, 2000); 
+
+        setTimeout(() => {
+          this.showLimboDeath2 = false;
+        }, 3000); 
       }
       console.log(`Character Position: (${this.lineX}, ${this.lineY})`);
       break;
@@ -413,7 +414,7 @@ checkCollision() {
 
     reset() {
       this.lineX = 0;
-      this.lineY = 500;
+      this.lineY = 520;
       this.isDead = false;
       this.xKeyPressed = false;
       this.arrowKeysPressed = false;
@@ -439,7 +440,7 @@ checkCollision() {
 
     reset2() {
       this.lineX = 540;
-      this.lineY = 500;
+      this.lineY = 520;
       this.isDead = false;
       this.xKeyPressed = false;
       this.arrowKeysPressed = false;
@@ -464,7 +465,12 @@ checkCollision() {
     },
   
     nextLevel() {
-    this.$router.push('/fourth-level');
+      this.fourth_prompt = true;
+    
+    setTimeout(() => {
+      this.fourth_prompt = false;
+      this.$router.push('/fourth-level');
+    }, 5000); 
   },
 }
 };
