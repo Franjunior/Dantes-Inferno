@@ -553,7 +553,7 @@
     
     setTimeout(() => {
       this.eigth_prompt = false;
-      this.$router.push('/eighth-level');
+      this.$router.push('/before-hell');
     }, 5000); 
     },
   }
