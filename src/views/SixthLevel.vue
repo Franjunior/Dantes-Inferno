@@ -40,9 +40,9 @@
              style="position: fixed; top: 490px; left: 280px; width: 200px; height: auto;">
 
              <img v-if="showLimboSpike2" 
-             :src="limboSpike" 
-             alt="limboSpike" 
-             style="position: fixed; top: 290px; left: 440px; width: 400px; height: auto;">
+             :src="limboSpike2" 
+             alt="limboSpike2" 
+             style="position: fixed; top: 190px; left: 440px; width: 400px; height: auto;">
         
         <img v-if = "showHeresy" 
             :src="heresy" 
@@ -165,6 +165,7 @@
   import heresyAttack from '@/assets/boss/heresyAttack.gif';
   import limboDeath from '@/assets/boss/limboDeath.gif';
   import limboSpike from '@/assets/obstacle/heresySpike.gif';
+  import limboSpike2 from '@/assets/obstacle/snakeSpike.gif';
   import proceedPrompt from '@/assets/prompts/proceed.png';
   import deathSpikePrompt from '@/assets/prompts/deathSpikePrompt.png';
   import deathPrompt from '@/assets/prompts/deathPrompt.png';
@@ -195,6 +196,7 @@
         idleGif,
         deathGif,
         limboSpike,
+        limboSpike2,
         heresy,
         heresyAttack,
         limboDeath,
@@ -496,6 +498,7 @@
         this.showDeathGif = false;
         this.showIdleGif = false;
         this.showLimboSpike = false;
+        this.showLimboSpike2 = false;
         this.showProceedPrompt = false;
         this.showLimboMessage = false;
         this.showDanteMessage = false;

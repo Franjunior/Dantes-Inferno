@@ -28,10 +28,20 @@
              class="character"
              style="position: fixed; top: 520px; left: 570px; width: 250px; height: auto;">
   
-        <img v-if="showLimboSpike" 
+             <img v-if="showLimboSpike" 
              :src="limboSpike" 
              alt="limboSpike" 
-             style="position: fixed; top: 540px; left: 250px; width: 250px; height: auto;">
+             style="position: fixed; top: 490px; left: 250px; width: 240px; height: auto;">
+        
+             <img v-if="showLimboSpike2" 
+             :src="limboSpike2" 
+             alt="limboSpike2" 
+             style="position: fixed; top: 47  0px; left: 370px; width: 270px; height: auto;">
+
+             <img v-if="showLimboSpike3" 
+             :src="limboSpike3" 
+             alt="limboSpike3" 
+             style="position: fixed; top: 430px; left: 500px; width: 330px; height: auto;">
         
         <img v-if = "showFraud" 
             :src="fraud" 
@@ -45,11 +55,29 @@
              class="character"
              style="position: fixed; top: 380px; left: 1000px; width: 350px; height: auto;">
   
-        <img v-if ="showLimboDeath"
+             <img v-if ="showLimboDeath"
              :src="limboDeath" 
              alt="limbo" 
              class="character"
              style="position: fixed; top: 420px; left: 1000px; width: 300px; height: auto;">
+
+             <img v-if ="showLimboDeath2"
+           :src="limboDeath" 
+           alt="limbo" 
+           class="character"
+           style="position: fixed; top: 590px; left: 300px; width: 100px; height: auto;">
+
+           <img v-if ="showLimboDeath4"
+           :src="limboDeath" 
+           alt="limbo" 
+           class="character"
+           style="position: fixed; top: 590px; left: 550px; width: 100px; height: auto;">
+
+           <img v-if ="showLimboDeath3"
+           :src="limboDeath" 
+           alt="limbo" 
+           class="character"
+           style="position: fixed; top: 590px; left: 420px; width: 100px; height: auto;">
        
         <img v-if="showDanteMessage" 
                :src="dante_line_first" 
@@ -141,6 +169,8 @@
   import fraudAttack from '@/assets/boss/fraudAttack.gif';
   import limboDeath from '@/assets/boss/limboDeath.gif';
   import limboSpike from '@/assets/obstacle/fraudSpike.gif';
+  import limboSpike2 from '@/assets/obstacle/fraud2Spike.gif';
+  import limboSpike3 from '@/assets/obstacle/fraud3Spike.gif';
   import proceedPrompt from '@/assets/prompts/proceed.png';
   import deathSpikePrompt from '@/assets/prompts/deathSpikePrompt.png';
   import deathPrompt from '@/assets/prompts/deathPrompt.png';
@@ -171,6 +201,8 @@
         idleGif,
         deathGif,
         limboSpike,
+        limboSpike2,
+        limboSpike3,
         fraud,
         fraudAttack,
         limboDeath,
@@ -192,8 +224,12 @@
         xKeyPressed: false,
         arrowKeysPressed: false,
         showDeathGif: false, 
+        showDeathGif2: false, 
+        showDeathGif3: false, 
         showIdleGif: false,
         showLimboSpike: true,
+        showLimboSpike2: false,
+        showLimboSpike3: false,
         showProceedPrompt: false,
         showLimboMessage: false,
         showDanteMessage: false,
@@ -208,10 +244,13 @@
         showFullHP: true,
         showNoHP: false,
         showLimboDeath: false,
+        showLimboDeath2: false,
+        showLimboDeath3: false,
+        showLimboDeath4: false,
         showYouWin: false,
         showDeathSpikePrompt: false,
         showDeathPrompt: false,
-        ninth_prompt: false,
+        eigth_prompt: false,
       };
     },
     mounted() {
@@ -225,7 +264,7 @@
     methods: {
       moveCharacter(direction) {
     if (this.isDead || this.alive) return; 
-
+  
     if (this.lineX === 880 && this.lineY === 520 && this.showLimboSpike == false) {
     ((direction === 'left' && this.lineX - this.step >= 880) || 
         (direction === 'right' && this.lineX + this.step <= 890)) 
@@ -285,7 +324,42 @@
             (this.lineX === 70 && this.lineY === 520)) {
           setTimeout(() => {
             this.showLimboSpike = false; 
-          }, 2000); 
+            this.showLimboSpike2 = true;
+            this.showLimboDeath2 = true;
+        }, 2000); 
+
+        setTimeout(() => {
+          this.showLimboDeath2 = false;
+        }, 3000); 
+        }
+
+        if ((this.lineX === 190 && this.lineY === 520) || 
+            (this.lineX === 200 && this.lineY === 520) || 
+            (this.lineX === 210 && this.lineY === 520) || 
+            (this.lineX === 220 && this.lineY === 520)) {
+          setTimeout(() => {
+            this.showLimboSpike2 = false; 
+            this.showLimboSpike3 = true;
+            this.showLimboDeath3 = true;
+        }, 2000); 
+
+        setTimeout(() => {
+          this.showLimboDeath3 = false;
+        }, 3000); 
+        }
+
+        if ((this.lineX === 320 && this.lineY === 520) || 
+            (this.lineX === 330 && this.lineY === 520) || 
+            (this.lineX === 340 && this.lineY === 520) || 
+            (this.lineX === 350 && this.lineY === 520)) {
+          setTimeout(() => {
+            this.showLimboSpike3 = false; 
+            this.showLimboDeath4 = true;
+        }, 2000); 
+
+        setTimeout(() => {
+          this.showLimboDeath4 = false;
+        }, 3000); 
         }
         console.log(`Character Position: (${this.lineX}, ${this.lineY})`);
         break;
@@ -304,11 +378,30 @@
           }, 2000); 
         }
         
-        if (this.showLimboSpike == false) {
-          this.isDead = false; 
-          this.showDeathGif = false;
+        if (this.lineX === 260 && this.lineY === 520 && this.showLimboSpike2 == true) {
+          this.isDead = true; 
+          this.showDeathGif2 = true;
+          this.showNoHP = true;
+          this.showFullHP = false;
           this.showIdleGif = false; 
+          setTimeout(() => {
+            this.showDeathSpikePrompt = true;
+            this.showNoHP = false;
+          }, 2000); 
         }
+
+        if (this.lineX === 350 && this.lineY === 520 && this.showLimboSpike3 == true) {
+          this.isDead = true; 
+          this.showDeathGif3 = true;
+          this.showNoHP = true;
+          this.showFullHP = false;
+          this.showIdleGif = false; 
+          setTimeout(() => {
+            this.showDeathSpikePrompt = true;
+            this.showNoHP = false;
+          }, 2000); 
+        }
+       
   
         if (this.lineX === 520 && this.lineY === 520 && this.showLimboSpike == false) {
           this.isDead = true;
@@ -401,13 +494,17 @@
   
       reset() {
         this.lineX = 0;
-        this.lineY = 500;
+        this.lineY = 520;
         this.isDead = false;
         this.xKeyPressed = false;
         this.arrowKeysPressed = false;
         this.showDeathGif = false;
+        this.showDeathGif2 = false;
+        this.showDeathGif3 = false;
         this.showIdleGif = false;
         this.showLimboSpike = true;
+        this.showLimboSpike2 = false;
+        this.showLimboSpike3 = false;
         this.showProceedPrompt = false;
         this.showLimboMessage = false;
         this.showDanteMessage = false;
@@ -427,13 +524,15 @@
   
       reset2() {
         this.lineX = 540;
-        this.lineY = 500;
+        this.lineY = 520;
         this.isDead = false;
         this.xKeyPressed = false;
         this.arrowKeysPressed = false;
         this.showDeathGif = false;
         this.showIdleGif = false;
         this.showLimboSpike = false;
+        this.showLimboSpike2 = false;
+        this.showLimboSpike3 = false;
         this.showProceedPrompt = false;
         this.showLimboMessage = false;
         this.showDanteMessage = false;
@@ -452,10 +551,10 @@
       },
     
       nextLevel() {
-        this.ninth_prompt = true;
+        this.eigth_prompt = true;
     
     setTimeout(() => {
-      this.ninth_prompt = false;
+      this.eigth_prompt = false;
       this.$router.push('/ninth-level');
     }, 5000); 
     },

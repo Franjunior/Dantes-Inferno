@@ -37,18 +37,18 @@
       <img v-if="showLimboSpike" 
            :src="limboSpike" 
            alt="limboSpike" 
-           style="position: fixed; top: 250px; left: 280px; width: 150px; height: auto;">
+           style="position: fixed; top: 260px; left: 280px; width: 100px; height: auto;">
 
            <img v-if="showLimboSpike2" 
            :src="limboSpike" 
            alt="limboSpike" 
-           style="position: fixed; top: 250px; left: 380px; width: 150px; height: auto;">
+           style="position: fixed; top: 230px; left: 380px; width: 130px; height: auto;">
 
            
            <img v-if="showLimboSpike2" 
            :src="limboSpike" 
            alt="limboSpike" 
-           style="position: fixed; top: 250px; left: 400px; width: 150px; height: auto;">
+           style="position: fixed; top: 230px; left: 420px; width: 135px; height: auto;">
       
       <img v-if = "showAnger" 
           :src="anger" 

@@ -44,17 +44,17 @@
         <img v-if="showLimboSpike" 
              :src="limboSpike" 
              alt="limboSpike" 
-             style="position: fixed; top: 610px; left: 300px; width: 100px; height: auto;">
+             style="position: fixed; top: 490px; left: 250px; width: 240px; height: auto;">
         
              <img v-if="showLimboSpike2" 
-             :src="limboSpike" 
-             alt="limboSpike" 
-             style="position: fixed; top: 610px; left: 420px; width: 100px; height: auto;">
+             :src="limboSpike2" 
+             alt="limboSpike2" 
+             style="position: fixed; top: 480px; left: 370px; width: 270px; height: auto;">
 
              <img v-if="showLimboSpike3" 
-             :src="limboSpike" 
-             alt="limboSpike" 
-             style="position: fixed; top: 610px; left: 560px; width: 100px; height: auto;">
+             :src="limboSpike3" 
+             alt="limboSpike3" 
+             style="position: fixed; top: 430px; left: 500px; width: 330px; height: auto;">
         
         <img v-if = "showViolence" 
             :src="violence" 
@@ -182,6 +182,8 @@
   import violenceAttack from '@/assets/boss/violenceAttack.gif';
   import limboDeath from '@/assets/boss/limboDeath.gif';
   import limboSpike from '@/assets/obstacle/wrathSpike.gif';
+  import limboSpike2 from '@/assets/obstacle/wrath2Spike.gif';
+  import limboSpike3 from '@/assets/obstacle/wrath3Spike.gif';
   import proceedPrompt from '@/assets/prompts/proceed.png';
   import deathSpikePrompt from '@/assets/prompts/deathSpikePrompt.png';
   import deathPrompt from '@/assets/prompts/deathPrompt.png';
@@ -212,6 +214,8 @@
         idleGif,
         deathGif,
         limboSpike,
+        limboSpike2,
+        limboSpike3,
         violence,
         violenceAttack,
         limboDeath,
@@ -540,6 +544,8 @@
         this.showDeathGif = false;
         this.showIdleGif = false;
         this.showLimboSpike = false;
+        this.showLimboSpike2 = false;
+        this.showLimboSpike3 = false;
         this.showProceedPrompt = false;
         this.showLimboMessage = false;
         this.showDanteMessage = false;
