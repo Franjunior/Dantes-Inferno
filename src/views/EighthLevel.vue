@@ -48,7 +48,7 @@
              <img v-if="showLimboSpike2" 
              :src="limboSpike2" 
              alt="limboSpike2" 
-             style="position: fixed; top: 490px; left: 370px; width: 270px; height: auto;">
+             style="position: fixed; top: 480px; left: 370px; width: 270px; height: auto;">
 
              <img v-if="showLimboSpike3" 
              :src="limboSpike3" 
@@ -101,7 +101,7 @@
                :src="limbo_line_first" 
                alt="Death GIF" 
                class="character"
-               style="position: fixed; top: 290px; left: 1090px; width: 250px; height: auto;">
+               style="position: fixed; top: 330px; left: 1100px; width: 250px; height: auto;">
   
         <img v-if="showDanteMessage2nd" 
                :src="dante_line_second" 
@@ -113,7 +113,7 @@
                :src="limbo_line_second" 
                alt="Death GIF" 
                class="character"
-               style="position: fixed; top: 240px; left: 1090px; width: 300px; height: auto;">
+               style="position: fixed; top: 330px; left: 1100px; width: 250px; height: auto;">
              
              <img v-if="showProceedPrompt" 
                :src="proceedPrompt" 
@@ -192,10 +192,10 @@
   import full_hp from '@/assets/hp/fullHP.png';
   import no_hp from '@/assets/hp/noHP.png';
   import youWin from '@/assets/prompts/youWin.png';
-  import limbo_line_first from '@/assets/convo/limbo-dante/limbo-line-first.png';
-  import dante_line_first from '@/assets/convo/limbo-dante/dante-line-first.png';
-  import dante_line_second from '@/assets/convo/limbo-dante/dante-line-second.png';
-  import limbo_line_second from '@/assets/convo/limbo-dante/limbo-line-second.png';
+  import limbo_line_first from '@/assets/convo/fraud-dante/8m2.png';
+  import dante_line_first from '@/assets/convo/fraud-dante/8m1.png';
+  import dante_line_second from '@/assets/convo/fraud-dante/8m3.png';
+  import limbo_line_second from '@/assets/convo/fraud-dante/8m4.png';
   import proceedButton from '@/assets/buttons/proceedButton.png';
   
   export default {

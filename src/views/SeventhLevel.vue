@@ -102,7 +102,7 @@
                :src="limbo_line_first" 
                alt="Death GIF" 
                class="character"
-               style="position: fixed; top: 290px; left: 1090px; width: 250px; height: auto;">
+               style="position: fixed; top: 290px; left: 1110px; width: 250px; height: auto;">
   
         <img v-if="showDanteMessage2nd" 
                :src="dante_line_second" 
@@ -114,7 +114,7 @@
                :src="limbo_line_second" 
                alt="Death GIF" 
                class="character"
-               style="position: fixed; top: 240px; left: 1090px; width: 300px; height: auto;">
+               style="position: fixed; top: 240px; left: 1110px; width: 300px; height: auto;">
              
              <img v-if="showProceedPrompt" 
                :src="proceedPrompt" 
@@ -193,10 +193,10 @@
   import full_hp from '@/assets/hp/fullHP.png';
   import no_hp from '@/assets/hp/noHP.png';
   import youWin from '@/assets/prompts/youWin.png';
-  import limbo_line_first from '@/assets/convo/limbo-dante/limbo-line-first.png';
-  import dante_line_first from '@/assets/convo/limbo-dante/dante-line-first.png';
-  import dante_line_second from '@/assets/convo/limbo-dante/dante-line-second.png';
-  import limbo_line_second from '@/assets/convo/limbo-dante/limbo-line-second.png';
+  import limbo_line_first from '@/assets/convo/violence-dante/7m2.png';
+  import dante_line_first from '@/assets/convo/violence-dante/7m1.png';
+  import dante_line_second from '@/assets/convo/violence-dante/7m3.png';
+  import limbo_line_second from '@/assets/convo/violence-dante/7m4.png';
   import proceedButton from '@/assets/buttons/proceedButton.png';
   
   export default {
