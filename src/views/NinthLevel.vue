@@ -22,6 +22,18 @@
              alt="Death GIF" 
              class="character"
              style="position: fixed; top: 550px; left: 220px; width: 250px; height: auto;">
+
+             <img v-if="showDeathGif2" 
+             :src="deathGif" 
+             alt="Death GIF" 
+             class="character"
+             style="position: fixed; top: 550px; left: 320px; width: 250px; height: auto;">
+             
+             <img v-if="showDeathGif3" 
+             :src="deathGif" 
+             alt="Death GIF" 
+             class="character"
+             style="position: fixed; top: 550px; left: 450px; width: 250px; height: auto;">
   
         <img v-if="showIdleGif" 
              :src="idleGif" 

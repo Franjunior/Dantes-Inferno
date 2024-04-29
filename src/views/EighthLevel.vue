@@ -22,6 +22,18 @@
              alt="Death GIF" 
              class="character"
              style="position: fixed; top: 520px; left: 220px; width: 250px; height: auto;">
+
+             <img v-if="showDeathGif2" 
+             :src="deathGif" 
+             alt="Death GIF" 
+             class="character"
+             style="position: fixed; top: 520px; left: 320px; width: 250px; height: auto;">
+             
+             <img v-if="showDeathGif3" 
+             :src="deathGif" 
+             alt="Death GIF" 
+             class="character"
+             style="position: fixed; top: 520px; left: 450px; width: 250px; height: auto;">
   
         <img v-if="showIdleGif" 
              :src="idleGif" 
@@ -36,7 +48,7 @@
              <img v-if="showLimboSpike2" 
              :src="limboSpike2" 
              alt="limboSpike2" 
-             style="position: fixed; top: 47  0px; left: 370px; width: 270px; height: auto;">
+             style="position: fixed; top: 490px; left: 370px; width: 270px; height: auto;">
 
              <img v-if="showLimboSpike3" 
              :src="limboSpike3" 
