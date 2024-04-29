@@ -69,7 +69,7 @@
              </div>
 
             <div v-if="first_prompt" class="loading-screen">
-            <img src="@/assets/prompts/first-prompt.gif" alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1400px; height: 800px;" />
+            <img src="@/assets/prompts/first-prompt.gif" alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1500px; height: 750px;" />
             </div>
           
       </div>

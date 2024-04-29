@@ -154,7 +154,7 @@
              alt="75 hp" style="position: fixed; top: 40px; left: 220px; width: 300px; height: auto;">
 
              <div v-if="sixth_prompt">
-            <img src="@/assets/prompts/sixth-prompt.gif" alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1400px; height: 800px;" />
+            <img src="@/assets/prompts/sixth-prompt.gif" alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1500px; height: 750px;" />
             </div>
 
     </div>

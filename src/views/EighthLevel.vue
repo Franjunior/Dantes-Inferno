@@ -53,7 +53,7 @@
              <img v-if="showLimboSpike3" 
              :src="limboSpike3" 
              alt="limboSpike3" 
-             style="position: fixed; top: 430px; left: 500px; width: 330px; height: auto;">
+             style="position: fixed; top: 430px; left: 510px; width: 330px; height: auto;">
         
         <img v-if = "showFraud" 
             :src="fraud" 
@@ -165,7 +165,7 @@
                alt="75 hp" style="position: fixed; top: 40px; left: 220px; width: 300px; height: auto;">
   
                <div v-if="ninth_prompt">
-            <img src="@/assets/prompts/ninth-prompt.gif" alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1400px; height: 800px;" />
+            <img src="@/assets/prompts/ninth-prompt.gif" alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1500px; height: 750px;" />
             </div>
   
       </div>
