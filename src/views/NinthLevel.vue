@@ -130,7 +130,7 @@
   
                <img v-if="showYouWin" 
                :src="youWin" 
-               alt="Start" style="position: fixed; top: 40px; left: 220px; width: 1000px; height: auto;">
+               alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1500px; height: 800px;">
   
                <div @click="reset">
                <img v-if="showDeathSpikePrompt" src="@/assets/buttons/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
@@ -189,7 +189,7 @@
   import last_hp from '@/assets/hp/lastHP.png';
   import full_hp from '@/assets/hp/fullHP.png';
   import no_hp from '@/assets/hp/noHP.png';
-  import youWin from '@/assets/prompts/youWin.png';
+  import youWin from '@/assets/prompts/congrats.gif';
   import limbo_line_first from '@/assets/convo/treachery-dante/9m2.png';
   import dante_line_first from '@/assets/convo/treachery-dante/9m1.png';
   import dante_line_second from '@/assets/convo/treachery-dante/9m3.png';
@@ -561,12 +561,7 @@
       },
     
       nextLevel() {
-        this.eigth_prompt = true;
-    
-    setTimeout(() => {
-      this.eigth_prompt = false;
-      this.$router.push('/before-hell');
-    }, 5000); 
+      this.$router.push('/reunite-level');
     },
   }
   };
