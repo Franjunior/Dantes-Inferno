@@ -378,35 +378,35 @@
           this.showDanteMessage = true;
   
           setTimeout(() => {
-              this.showDanteMessage = false; 
-          }, 2000); 
-  
-          setTimeout(() => {
-              this.showLimboMessage = true; 
-          }, 2200); 
-  
-          setTimeout(() => {
-              this.showLimboMessage = false; 
-          }, 4200); 
-  
-          setTimeout(() => {
-              this.showDanteMessage2nd = true; 
-          }, 4400); 
-  
-          setTimeout(() => {
-              this.showDanteMessage2nd = false; 
-          }, 6400); 
-  
-          setTimeout(() => {
-              this.showLimboMessage2nd = true; 
-          }, 6600); 
-  
-          setTimeout(() => {
-              this.showLimboMessage2nd = false; 
-              this.isDead = false;
-              this.showIdleGif = false;
-          }, 8600); 
-        }
+            this.showDanteMessage = false; 
+        }, 4000); 
+
+        setTimeout(() => {
+            this.showLimboMessage = true; 
+        }, 4200); 
+
+        setTimeout(() => {
+            this.showLimboMessage = false; 
+        }, 8200); 
+
+        setTimeout(() => {
+            this.showDanteMessage2nd = true; 
+        }, 8400); 
+
+        setTimeout(() => {
+            this.showDanteMessage2nd = false; 
+        }, 12400); 
+
+        setTimeout(() => {
+            this.showLimboMessage2nd = true; 
+        }, 12600); 
+
+        setTimeout(() => {
+            this.showLimboMessage2nd = false; 
+            this.isDead = false;
+            this.showIdleGif = false;
+        }, 16600); 
+      }
   
         if (this.lineX === 870 && this.lineY === 500 && this.showLimboSpike == false) {
           this.showHeresyAttack = true;

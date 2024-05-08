@@ -130,7 +130,7 @@
   
                <img v-if="showYouWin" 
                :src="youWin" 
-               alt="Start" style="position: fixed; top: 40px; left: 220px; width: 1000px; height: auto;">
+               alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1500px; height: 800px;">
   
                <div @click="reset">
                <img v-if="showDeathSpikePrompt" src="@/assets/buttons/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
@@ -189,7 +189,7 @@
   import last_hp from '@/assets/hp/lastHP.png';
   import full_hp from '@/assets/hp/fullHP.png';
   import no_hp from '@/assets/hp/noHP.png';
-  import youWin from '@/assets/prompts/youWin.png';
+  import youWin from '@/assets/prompts/congrats.gif';
   import limbo_line_first from '@/assets/convo/treachery-dante/9m2.png';
   import dante_line_first from '@/assets/convo/treachery-dante/9m1.png';
   import dante_line_second from '@/assets/convo/treachery-dante/9m3.png';
@@ -419,35 +419,35 @@
           this.showDanteMessage = true;
   
           setTimeout(() => {
-              this.showDanteMessage = false; 
-          }, 2000); 
-  
-          setTimeout(() => {
-              this.showLimboMessage = true; 
-          }, 2200); 
-  
-          setTimeout(() => {
-              this.showLimboMessage = false; 
-          }, 4200); 
-  
-          setTimeout(() => {
-              this.showDanteMessage2nd = true; 
-          }, 4400); 
-  
-          setTimeout(() => {
-              this.showDanteMessage2nd = false; 
-          }, 6400); 
-  
-          setTimeout(() => {
-              this.showLimboMessage2nd = true; 
-          }, 6600); 
-  
-          setTimeout(() => {
-              this.showLimboMessage2nd = false; 
-              this.isDead = false;
-              this.showIdleGif = false;
-          }, 8600); 
-        }
+            this.showDanteMessage = false; 
+        }, 4000); 
+
+        setTimeout(() => {
+            this.showLimboMessage = true; 
+        }, 4200); 
+
+        setTimeout(() => {
+            this.showLimboMessage = false; 
+        }, 8200); 
+
+        setTimeout(() => {
+            this.showDanteMessage2nd = true; 
+        }, 8400); 
+
+        setTimeout(() => {
+            this.showDanteMessage2nd = false; 
+        }, 12400); 
+
+        setTimeout(() => {
+            this.showLimboMessage2nd = true; 
+        }, 12600); 
+
+        setTimeout(() => {
+            this.showLimboMessage2nd = false; 
+            this.isDead = false;
+            this.showIdleGif = false;
+        }, 16600); 
+      }
   
         if (this.lineX === 870 && this.lineY === 550 && this.showLimboSpike == false) {
           this.showTreacheryAttack = true;
