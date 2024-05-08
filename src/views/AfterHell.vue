@@ -24,13 +24,11 @@
              class="character"
              style="position: fixed; top: 640px; left: 700px; width: 120px; height: auto;">
         
-       
-
              <img v-if="showIdleGif" 
              :src="idleGif" 
              alt="Idle GIF" 
              class="character"
-             style="position: fixed; top: 550px; left: 550px; width: 250px; height: auto;">
+             style="position: fixed; top: 580px; left: 550px; width: 250px; height: auto;">
   
              <img v-if="showGrimMessage" 
              :src="grim_line_first" 
@@ -57,12 +55,8 @@
              style="position: fixed; top: 260px; left: 800px; width: 300px; height: auto;">
 
              <img v-if="showProceedPrompt" 
-             :src="proceedPrompt" 
+             :src="theend" 
              alt="Start" style="position: fixed; top: 40px; left: 220px; width: 1000px; height: auto;">
-
-             <div @click="proceedToHell">
-             <img v-if="showProceedPrompt" src="@/assets/buttons/proceedButton.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
-             </div>
 
             <div v-if="first_prompt" class="loading-screen">
             <img src="@/assets/prompts/first-prompt.gif" alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1500px; height: 750px;" />
@@ -83,12 +77,13 @@
   import grim_line_second from '@/assets/convo/grim-dante/grim-line-second.png';
   import proceedButton from '@/assets/buttons/proceedButton.png';
   import proceedPrompt from '@/assets/prompts/proceed.png';
+  import theend from '@/assets/prompts/theend.png';
   
   export default {
   data() {
     return {
       lineX: 0,
-      lineY: 550,
+      lineY: 580,
       step: 10,
       containerWidth: 1300,
       containerHeight: 200,
@@ -96,6 +91,7 @@
       congratulations: false,
       walkGif,
       grimGif,
+      theend,
       attackGif,
       idleGif,
       grim_line_first,
@@ -113,7 +109,6 @@
       showGrimMessage2nd: false,
       showIdleGif: false,
       showProceedPrompt: false,
-      first_prompt: false,
     };
   },
   mounted() {
@@ -129,10 +124,10 @@
       if (this.isDead) return; 
       switch (direction) {
         case 'up':
-          this.lineY = Math.max(this.lineY - this.step, 550);
+          this.lineY = Math.max(this.lineY - this.step, 580);
           break;
         case 'down':
-          this.lineY = Math.min(this.lineY + this.step, 550);
+          this.lineY = Math.min(this.lineY + this.step, 580);
           break;
         case 'left':
           this.lineX = Math.max(this.lineX - this.step, -90);
@@ -142,24 +137,50 @@
           break;
       }
       this.checkCollision(); 
-      
-      // Calculate the distance between the character and the grimGif
-      const distanceX = Math.abs(this.lineX - 700); // 700 is the left position of grimGif
-      const distanceY = Math.abs(this.lineY - 640); // 640 is the top position of grimGif
-      const distance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
-
-      // If the character gets close enough to the grimGif, show the dialog
-      if (distance < 50) { // Adjust the value as needed for your proximity threshold
-        this.showGrimMessage = true;
-        // You can also set other dialog messages to false if needed
-        this.showDanteMessage = false;
-        // Add similar conditions for other dialogs
-      } else {
-        // Hide the dialog messages if the character moves away
-        this.showGrimMessage = false;
-        // Add similar conditions for other dialogs
-      }
     },
+
+    checkCollision() {
+        if (
+          this.lineX + 250 > 750
+        ) {
+
+          this.isDead = true;
+           
+        this.showDanteMessage = true; 
+       
+        setTimeout(() => {
+        this.showDanteMessage = false; 
+        }, 2000);  
+
+        setTimeout(() => {
+          this.showGrimMessage = true;
+        }, 2200); 
+
+        setTimeout(() => {
+        this.showGrimMessage = false;  
+        }, 4000); 
+
+        setTimeout(() => {
+        this.showDanteMessage2nd = true; 
+        }, 4200);
+
+        setTimeout(() => {
+        this.showDanteMessage2nd = false; 
+        }, 6200);
+
+        setTimeout(() => {
+        this.showGrimMessage2nd = true; 
+        }, 6400);
+
+        this.showIdleGif = true; 
+        
+        setTimeout(() => {
+          this.showProceedPrompt = true;
+       }, 6500);
+
+    }
+      },
+
     showHellPrompt() {
       this.showProceedPrompt = true;
     },
@@ -170,6 +191,7 @@
         this.$router.push('/first-level');
       }, 5000); 
     },
+
     handleKeyDown(event) {
       if (this.collision || this.congratulations || this.isDead) return;
       switch (event.key) {
@@ -220,12 +242,6 @@
     width: 40px;
     height: 60px;
   }
-
-  .notif-background {
-    background-image: url('@/assets/start.png');
-    background-size: cover;
-}
-  
 
   </style>
   

@@ -276,11 +276,5 @@ proceedToHell() {
     height: 60px;
   }
 
-  .notif-background {
-    background-image: url('@/assets/start.png');
-    background-size: cover;
-}
-  
-
   </style>
   
