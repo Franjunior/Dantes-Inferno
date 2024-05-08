@@ -565,7 +565,7 @@
     
     setTimeout(() => {
       this.eigth_prompt = false;
-      this.$router.push('/before-hell');
+      this.$router.push('/after-hell');
     }, 5000); 
     },
   }

@@ -10,6 +10,7 @@ import SixthLevel from '@/views/SixthLevel.vue'
 import SeventhLevel from '@/views/SeventhLevel.vue'
 import EighthLevel from '@/views/EighthLevel.vue'
 import NinthLevel from '@/views/NinthLevel.vue'
+import AfterHell from '@/views/AfterHell.vue'
 
 const routes = [
   {
@@ -81,6 +82,13 @@ const routes = [
     path: '/ninth-level',
     name: 'NinthLevel',
     component: NinthLevel
+  }
+  ,
+
+  {
+    path: '/after-hell',
+    name: 'AfterHell',
+    component: AfterHell
   }
 ]
 
