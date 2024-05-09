@@ -28,31 +28,31 @@
              :src="idleGif" 
              alt="Idle GIF" 
              class="character"
-             style="position: fixed; top: 580px; left: 550px; width: 250px; height: auto;">
+             style="position: fixed; top: 555px; left: 550px; width: 250px; height: auto;">
   
              <img v-if="showGrimMessage" 
              :src="grim_line_first" 
              alt="Death GIF" 
              class="character"
-             style="position: fixed; top: 300px; left: 800px; width: 250px; height: auto;">
+             style="position: fixed; top: 410px; left: 710px; width: 250px; height: auto;">
 
              <img v-if="showDanteMessage" 
              :src="dante_line_first" 
              alt="Death GIF" 
              class="character"
-             style="position: fixed; top: 390px; left: 480px; width: 250px; height: auto;">
+             style="position: fixed; top: 410px; left: 480px; width: 250px; height: auto;">
 
              <img v-if="showDanteMessage2nd" 
              :src="dante_line_second" 
              alt="Death GIF" 
              class="character"
-             style="position: fixed; top: 390px; left: 480px; width: 250px; height: auto;">
+             style="position: fixed; top: 410px; left: 480px; width: 250px; height: auto;">
 
              <img v-if="showGrimMessage2nd" 
              :src="grim_line_second" 
              alt="Death GIF" 
              class="character"
-             style="position: fixed; top: 260px; left: 800px; width: 300px; height: auto;">
+             style="position: fixed; top: 410px; left: 710px; width: 250px; height: auto;">
 
              <img v-if="showProceedPrompt" 
              :src="theend" 
@@ -71,10 +71,10 @@
   import attackGif from '@/assets/dante/attack.gif';
   import idleGif from '@/assets/dante/idle.gif';
   import grimGif from '@/assets/boss/beat.gif';
-  import grim_line_first from '@/assets/convo/grim-dante/grim-line-first.png';
-  import dante_line_first from '@/assets/convo/grim-dante/dante-line-first.png';
-  import dante_line_second from '@/assets/convo/grim-dante/dante-line-second.png';
-  import grim_line_second from '@/assets/convo/grim-dante/grim-line-second.png';
+  import grim_line_first from '@/assets/convo/bea-dante/af-2.png';
+  import dante_line_first from '@/assets/convo/bea-dante/af-1.png';
+  import dante_line_second from '@/assets/convo/bea-dante/af-3.png';
+  import grim_line_second from '@/assets/convo/bea-dante/af-4.png';
   import proceedButton from '@/assets/buttons/proceedButton.png';
   import proceedPrompt from '@/assets/prompts/proceed.png';
   import theend from '@/assets/prompts/theend.png';
@@ -83,7 +83,7 @@
   data() {
     return {
       lineX: 0,
-      lineY: 580,
+      lineY: 555,
       step: 10,
       containerWidth: 1300,
       containerHeight: 200,
@@ -124,10 +124,10 @@
       if (this.isDead) return; 
       switch (direction) {
         case 'up':
-          this.lineY = Math.max(this.lineY - this.step, 580);
+          this.lineY = Math.max(this.lineY - this.step, 555);
           break;
         case 'down':
-          this.lineY = Math.min(this.lineY + this.step, 580);
+          this.lineY = Math.min(this.lineY + this.step, 555);
           break;
         case 'left':
           this.lineX = Math.max(this.lineX - this.step, -90);
@@ -140,46 +140,35 @@
     },
 
     checkCollision() {
-        if (
-          this.lineX + 250 > 750
-        ) {
+  if (this.lineX + 250 > 750) {
+    this.isDead = true;
+    this.showDanteMessage = true;
+    setTimeout(() => {
+      this.showDanteMessage = false;
+    }, 2000);
+    setTimeout(() => {
+      this.showGrimMessage = true;
+    }, 2200);
+    setTimeout(() => {
+      this.showGrimMessage = false;
+    }, 4000);
+    setTimeout(() => {
+      this.showDanteMessage2nd = true;
+    }, 4200);
+    setTimeout(() => {
+      this.showDanteMessage2nd = false;
+    }, 6200);
+    setTimeout(() => {
+      this.showGrimMessage2nd = true;
+    }, 6400);
+    this.showIdleGif = true;
+    // Delay the appearance of theend.png after af-4.png
+    setTimeout(() => {
+      this.showProceedPrompt = true;
+    }, 10000); // Adjust this timing as needed
+  }
+},
 
-          this.isDead = true;
-           
-        this.showDanteMessage = true; 
-       
-        setTimeout(() => {
-        this.showDanteMessage = false; 
-        }, 2000);  
-
-        setTimeout(() => {
-          this.showGrimMessage = true;
-        }, 2200); 
-
-        setTimeout(() => {
-        this.showGrimMessage = false;  
-        }, 4000); 
-
-        setTimeout(() => {
-        this.showDanteMessage2nd = true; 
-        }, 4200);
-
-        setTimeout(() => {
-        this.showDanteMessage2nd = false; 
-        }, 6200);
-
-        setTimeout(() => {
-        this.showGrimMessage2nd = true; 
-        }, 6400);
-
-        this.showIdleGif = true; 
-        
-        setTimeout(() => {
-          this.showProceedPrompt = true;
-       }, 6500);
-
-    }
-      },
 
     showHellPrompt() {
       this.showProceedPrompt = true;
@@ -189,7 +178,7 @@
       setTimeout(() => {
         this.first_prompt = false;
         this.$router.push('/first-level');
-      }, 5000); 
+      }, 1000); 
     },
 
     handleKeyDown(event) {
