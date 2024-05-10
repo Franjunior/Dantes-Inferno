@@ -46,13 +46,13 @@
              :src="dante_line_first" 
              alt="Death GIF" 
              class="character"
-             style="position: fixed; top: 390px; left: 480px; width: 250px; height: auto;">
+             style="position: fixed; top: 390px; left: 500px; width: 250px; height: auto;">
 
              <img v-if="showDanteMessage2nd" 
              :src="dante_line_second" 
              alt="Death GIF" 
              class="character"
-             style="position: fixed; top: 390px; left: 480px; width: 250px; height: auto;">
+             style="position: fixed; top: 390px; left: 500px; width: 250px; height: auto;">
 
              <img v-if="showGrimMessage2nd" 
              :src="grim_line_second" 
@@ -62,10 +62,10 @@
 
              <img v-if="showProceedPrompt" 
              :src="proceedPrompt" 
-             alt="Start" style="position: fixed; top: 40px; left: 220px; width: 1000px; height: auto;">
+             alt="Start" style="position: fixed; top: -10px; left: 220px; width: 1000px; height: auto;">
 
              <div @click="proceedToHell">
-             <img v-if="showProceedPrompt" src="@/assets/buttons/proceedButton.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+             <img v-if="showProceedPrompt" src="@/assets/buttons/proceedButton.png" alt="Start" style="position: fixed; top: 450px; left: 600px; width: 250px; height: auto;" />
              </div>
 
             <div v-if="first_prompt" class="loading-screen">

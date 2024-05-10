@@ -83,7 +83,7 @@
            :src="limboDeath" 
            alt="limbo" 
            class="character"
-           style="position: fixed; top: 590px; left: 550px; width: 100px; height: auto;">
+           style="position: fixed; top: 400px; left: 550px; width: 300px; height: auto;">
 
            <img v-if ="showLimboDeath3"
            :src="limboDeath" 
@@ -117,31 +117,31 @@
              
              <img v-if="showProceedPrompt" 
                :src="proceedPrompt" 
-               alt="Start" style="position: fixed; top: 40px; left: 220px; width: 1000px; height: auto;">
+               alt="Start" style="position: fixed; top: -20px; left: 220px; width: 1000px; height: auto;">
   
                <img v-if="showDeathSpikePrompt" 
                :src="deathSpikePrompt" 
-               alt="Start" style="position: fixed; top: 40px; left: 220px; width: 1000px; height: auto;">
+               alt="Start" style="position: fixed; top: -20px; left: 220px; width: 1000px; height: auto;">
   
                <img v-if="showDeathPrompt" 
                :src="deathPrompt" 
-               alt="Start" style="position: fixed; top: 40px; left: 220px; width: 1000px; height: auto;">
+               alt="Start" style="position: fixed; top: -20px; left: 220px; width: 1000px; height: auto;">
   
   
                <img v-if="showYouWin" 
                :src="youWin" 
-               alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1500px; height: 800px;">
+               alt="Start" style="position: fixed; top: -20p; left: -1px; width: 1500px; height: 800px;">
   
                <div @click="reset">
-               <img v-if="showDeathSpikePrompt" src="@/assets/buttons/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+               <img v-if="showDeathSpikePrompt" src="@/assets/buttons/startAgain.png" alt="Start" style="position: fixed; top: 450px; left: 600px; width: 250px; height: auto;" />
                </div>
   
                <div @click="reset2">
-               <img v-if="showDeathPrompt" src="@/assets/buttons/startAgain.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+               <img v-if="showDeathPrompt" src="@/assets/buttons/startAgain.png" alt="Start" style="position: fixed; top: 450px; left: 600px; width: 250px; height: auto;" />
                </div>
   
                <div @click="nextLevel">
-              <img v-if = "showYouWin" src="@/assets/buttons/proceedNext.png" alt="Start" style="position: fixed; top: 510px; left: 600px; width: 250px; height: auto;" />
+              <img v-if = "showYouWin" src="@/assets/buttons/proceedNext.png" alt="Start" style="position: fixed; top: 450px; left: 600px; width: 250px; height: auto;" />
               </div>
   
                <img v-if="show75HP" 

@@ -56,7 +56,7 @@
 
              <img v-if="showProceedPrompt" 
              :src="theend" 
-             alt="Start" style="position: fixed; top: 40px; left: 220px; width: 1000px; height: auto;">
+             alt="Start" style="position: fixed; top: -10px; left: 220px; width: 1000px; height: auto;">
 
             <div v-if="first_prompt" class="loading-screen">
             <img src="@/assets/prompts/first-prompt.gif" alt="Start" style="position: fixed; top: -1px; left: -1px; width: 1500px; height: 750px;" />
@@ -162,10 +162,10 @@
       this.showGrimMessage2nd = true;
     }, 6400);
     this.showIdleGif = true;
-    // Delay the appearance of theend.png after af-4.png
+    
     setTimeout(() => {
       this.showProceedPrompt = true;
-    }, 10000); // Adjust this timing as needed
+    }, 10000);
   }
 },
 
